@@ -53,18 +53,12 @@ def compare_methods(func, chebyshev_function, exact_integral, interval, max_n):
     plt.show()
 
 def chebyshev_function(x):
-    # Example function
-    # Leave out the weight function 
-    # 1/sqrt(1-x^2), it is already accounted for
-    # in the Gaussian Quadrature function
+
     base_func = np.cos(x)
     return base_func
 
 def standard_function(x):
-    # Avoiding the undefined region near -1 and 1
-    # This is here to account for the comparison of
-    # Gauss-Chebyshev which will be used with functions
-    # that will normally include division by zero.
+
     eps = 1e-6
     x_clipped = np.clip(x, -1 + eps, 1 - eps)
 
@@ -72,11 +66,9 @@ def standard_function(x):
     weighted = 1 / np.sqrt(1 - x_clipped**2)
     return base_func * weighted
 
-# Define interval of integration
+
 a, b = -1, 1
 
-# Calculate the approximate integral using SciPy's quad function
 exact_integral_value, _ = quad(standard_function, a, b)
 
-# Create visual comparison of various numerical integration methods
 compare_methods(standard_function, chebyshev_function, exact_integral_value, (a, b), 7)
