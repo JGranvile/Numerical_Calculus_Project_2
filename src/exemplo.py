@@ -4,11 +4,11 @@ from GaussQuad import GaussQuadrature, Gaussian_Quad
 
 # Crie uma função para integrar
 def func(x):
-    return x*10;  # Função de exemplo para integrar
+    return x*8;  # Função de exemplo para integrar
 
 # Use o Gaussian_Quad para realizar a integração
 num_nodes = 5
-intervalo = (574, 1314)  # Intervalo de exemplo
+intervalo = (574, 1888)  # Intervalo de exemplo
 método = 'legendre'  # ou 'chebyshev'
 
 # Usando a função Gaussian_Quad
